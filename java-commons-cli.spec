@@ -2,7 +2,7 @@ Summary:	Jakarta Commons CLI - API for working with command line
 Summary(pl):	Jakarta Commons CLI - API do pracy z lini± poleceñ
 Name:		jakarta-commons-cli
 Version:	1.0
-Release:	0.1
+Release:	1
 License:	Apache v1.1
 Group:		Development/Languages/Java
 Source0:	http://www.apache.org/dist/jakarta/commons/cli/source/cli-%{version}-src.tar.gz
@@ -48,6 +48,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_javadir}
 
 install dist/*.jar $RPM_BUILD_ROOT%{_javadir}
+ln -sf commons-cli-%{version}-beta-2-dev.jar $RPM_BUILD_ROOT%{_javadir}/commons-cli.jar
 
 %clean
 rm -rf $RPM_BUILD_ROOT
