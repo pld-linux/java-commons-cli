@@ -39,7 +39,7 @@ Dokumentacja do Jakarta Commons CLI.
 %setup -q -n commons-cli-%{version}
 
 %build
-mkdir lib/
+install -d lib
 ant dist \
 	-Dnoget="true"
 
