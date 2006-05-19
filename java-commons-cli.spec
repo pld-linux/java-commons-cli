@@ -8,7 +8,7 @@ Group:		Development/Languages/Java
 Source0:	http://www.apache.org/dist/jakarta/commons/cli/source/cli-%{version}-src.tar.gz
 # Source0-md5:  ba34d585046b1f17dacbb13b377f4255
 URL:		http://jakarta.apache.org/commons/cli/
-BuildRequires:	jakarta-ant
+BuildRequires:	ant
 BuildRequires:	jakarta-commons-lang
 BuildRequires:	jakarta-commons-logging
 BuildRequires:	jdk >= 1.4
