@@ -43,7 +43,7 @@ Dokumentacja do Jakarta Commons CLI.
 
 %build
 install -d lib
-# Doesn't build without it, thou it get's the rest deps OK
+# Doesn't build without it, thou it gets the rest deps OK
 ln -s %{_javadir}/commons-lang.jar lib/commons-lang.jar
 %ant dist \
 	-Dnoget="true"
