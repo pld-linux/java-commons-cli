@@ -1,5 +1,5 @@
 Summary:	Jakarta Commons CLI - API for working with command line
-Summary(pl):	Jakarta Commons CLI - API do pracy z lini± poleceñ
+Summary(pl.UTF-8):   Jakarta Commons CLI - API do pracy z liniÄ… poleceÅ„
 Name:		jakarta-commons-cli
 Version:	1.0
 Release:	2
@@ -23,19 +23,19 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Jakarta Commons CLI provides a simple API for working with the command
 line arguments and options.
 
-%description -l pl
+%description -l pl.UTF-8
 Jakarta Commons CLI dostarcza prostego API do pracy z argumentami i
-opcjami linii poleceñ.
+opcjami linii poleceÅ„.
 
 %package doc
 Summary:	Jakarta Commons CLI documentation
-Summary(pl):	Dokumentacja do Jakarta Commons CLI
+Summary(pl.UTF-8):   Dokumentacja do Jakarta Commons CLI
 Group:		Development/Languages/Java
 
 %description doc
 Jakarta Commons CLI documantation.
 
-%description doc -l pl
+%description doc -l pl.UTF-8
 Dokumentacja do Jakarta Commons CLI.
 
 %prep
