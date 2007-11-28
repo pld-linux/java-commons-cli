@@ -1,20 +1,26 @@
+#
+# Conditional build:
+%bcond_without	tests		# don't run tests
+#
 %include	/usr/lib/rpm/macros.java
 Summary:	Jakarta Commons CLI - API for working with command line
 Summary(pl.UTF-8):	Jakarta Commons CLI - API do pracy z linią poleceń
 Name:		jakarta-commons-cli
 Version:	1.1
-Release:	1
+Release:	2
 License:	Apache v1.1
 Group:		Development/Languages/Java
 Source0:	http://www.apache.org/dist/commons/cli/source/commons-cli-%{version}-src.tar.gz
 # Source0-md5:	ccc1aa194132e2387557bbb7f65391f4
 URL:		http://jakarta.apache.org/commons/cli/
+Patch0:		%{name}-target.patch
 BuildRequires:	ant
 BuildRequires:	jakarta-commons-lang
 BuildRequires:	jakarta-commons-logging
 BuildRequires:	jaxp_parser_impl
 BuildRequires:	jdk >= 1.4
 BuildRequires:	jpackage-utils
+%{?with_tests:BuildRequires:	junit}
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	jre >= 1.4
@@ -44,6 +50,7 @@ Dokumentacja do Jakarta Commons CLI.
 
 %prep
 %setup -q -n commons-cli-%{version}-src
+%patch0 -p1
 
 %build
 required_jars="commons-lang"
