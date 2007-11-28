@@ -1,0 +1,22 @@
+--- commons-cli-1.1-src/build.xml	2007-07-05 05:48:19.000000000 +0300
++++ commons-cli-1.1-src-1.5/build.xml	2007-11-29 01:41:03.409486580 +0200
+@@ -22,6 +22,8 @@
+   </property>
+   <property name="final.name" value="commons-cli-1.1">
+   </property>
++  <property name="compile.source" value="1.5"/>
++  <property name="compile.target" value="1.5"/>
+   <path id="build.classpath">
+     <fileset dir="${libdir}">
+       <include name="**/*.jar">
+@@ -43,7 +45,9 @@
+   <target name="compile" description="o Compile the code" depends="get-deps">
+     <mkdir dir="${classesdir}">
+     </mkdir>
+-    <javac destdir="${classesdir}" deprecation="true" debug="true" optimize="false" excludes="**/package.html">
++	<javac destdir="${classesdir}" deprecation="true" debug="true" optimize="false"
++		source="${compile.source}" target="${compile.target}"
++	   excludes="**/package.html">
+       <src>
+         <pathelement location="src/java">
+         </pathelement>
