@@ -1,19 +1,20 @@
 #
 # Conditional build:
+%bcond_without	javadoc		# don't build javadoc
 %bcond_without	tests		# don't run tests
 #
 %include	/usr/lib/rpm/macros.java
 Summary:	Jakarta Commons CLI - API for working with command line
 Summary(pl.UTF-8):	Jakarta Commons CLI - API do pracy z linią poleceń
-Name:		jakarta-commons-cli
+Name:		java-commons-cli
 Version:	1.1
 Release:	2
 License:	Apache v1.1
-Group:		Development/Languages/Java
+Group:		Libraries/Java
 Source0:	http://www.apache.org/dist/commons/cli/source/commons-cli-%{version}-src.tar.gz
 # Source0-md5:	ccc1aa194132e2387557bbb7f65391f4
 URL:		http://jakarta.apache.org/commons/cli/
-Patch0:		%{name}-target.patch
+Patch0:		jakarta-commons-cli-target.patch
 BuildRequires:	ant
 BuildRequires:	jakarta-commons-lang
 BuildRequires:	jakarta-commons-logging
@@ -23,7 +24,10 @@ BuildRequires:	jpackage-utils
 %{?with_tests:BuildRequires:	junit}
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
+Requires:	jpackage-utils
 Requires:	jre >= 1.4
+Provides:	jakarta-commons-cli
+Obsoletes:	jakarta-commons-cli
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -65,9 +69,11 @@ install -d $RPM_BUILD_ROOT%{_javadir}
 install dist/commons-cli-%{version}.jar $RPM_BUILD_ROOT%{_javadir}
 ln -sf commons-cli-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/commons-cli.jar
 
+%if %{with javadoc}
 install -d $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 cp -a dist/docs/api/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 ln -s %{name}-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name} # ghost symlink
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -80,7 +86,9 @@ ln -nfs %{name}-%{version} %{_javadocdir}/%{name}
 %doc LICENSE.txt
 %{_javadir}/*.jar
 
+%if %{with javadoc}
 %files javadoc
 %defattr(644,root,root,755)
 %{_javadocdir}/%{name}-%{version}
 %ghost %{_javadocdir}/%{name}
+%endif
