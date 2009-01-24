@@ -16,8 +16,8 @@ Source0:	http://www.apache.org/dist/commons/cli/source/commons-cli-%{version}-sr
 URL:		http://commons.apache.org/cli/
 Patch0:		jakarta-commons-cli-target.patch
 BuildRequires:	ant
-BuildRequires:	jakarta-commons-lang
-BuildRequires:	jakarta-commons-logging
+BuildRequires:	java-commons-lang
+BuildRequires:	java-commons-logging
 BuildRequires:	jaxp_parser_impl
 BuildRequires:	jdk >= 1.4
 BuildRequires:	jpackage-utils
