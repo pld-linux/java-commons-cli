@@ -14,7 +14,7 @@ Group:		Libraries/Java
 Source0:	http://www.apache.org/dist/commons/cli/source/commons-cli-%{version}-src.tar.gz
 # Source0-md5:	ccc1aa194132e2387557bbb7f65391f4
 URL:		http://commons.apache.org/cli/
-Patch0:		jakarta-commons-cli-target.patch
+Patch0:		java-commons-cli-target.patch
 BuildRequires:	ant
 BuildRequires:	java-commons-lang
 BuildRequires:	java-commons-logging
