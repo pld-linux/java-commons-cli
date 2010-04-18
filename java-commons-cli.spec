@@ -3,12 +3,6 @@
 %bcond_without	javadoc		# don't build javadoc
 %bcond_without	tests		# don't run tests
 
-%if "%{pld_release}" == "ti"
-%bcond_without	java_sun	# build with gcj
-%else
-%bcond_with	java_sun	# build with java-sun
-%endif
-
 %include	/usr/lib/rpm/macros.java
 %define		srcname		commons-cli
 Summary:	Commons CLI - API for working with command line
@@ -23,15 +17,12 @@ Source0:	http://www.apache.org/dist/commons/cli/source/commons-cli-%{version}-sr
 Patch0:		%{name}-target.patch
 URL:		http://commons.apache.org/cli/
 BuildRequires:	ant
+BuildRequires:	java(jaxp_parser_impl)
 BuildRequires:	java-commons-lang
 BuildRequires:	java-commons-logging
-%{!?with_java_sun:BuildRequires:	java-gcj-compat-devel}
-%{?with_java_sun:BuildRequires:	java-sun}
-BuildRequires:	jaxp_parser_impl
 BuildRequires:	jdk >= 1.4
 BuildRequires:	jpackage-utils
 %{?with_tests:BuildRequires:	junit}
-BuildRequires:	rpm >= 4.4.9-56
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	jpackage-utils
