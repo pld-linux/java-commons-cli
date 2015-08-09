@@ -22,7 +22,7 @@ BuildRequires:	java-commons-lang
 BuildRequires:	java-commons-logging
 BuildRequires:	jdk >= 1.4
 BuildRequires:	jpackage-utils
-%{?with_tests:BuildRequires:	junit}
+%{?with_tests:BuildRequires:	java-junit}
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	jpackage-utils
