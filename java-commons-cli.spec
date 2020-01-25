@@ -3,7 +3,6 @@
 %bcond_without	javadoc		# don't build javadoc
 %bcond_without	tests		# don't run tests
 
-%include	/usr/lib/rpm/macros.java
 %define		srcname		commons-cli
 Summary:	Commons CLI - API for working with command line
 Summary(pl.UTF-8):	Commons CLI - API do pracy z linią poleceń
