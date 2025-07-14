@@ -54,7 +54,7 @@ Dokumentacja do Commons CLI.
 
 %prep
 %setup -q -n commons-cli-%{version}-src
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 required_jars="commons-lang"
